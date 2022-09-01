@@ -85,8 +85,7 @@ Ext.define('MyApp.view.main.MainController', {
             })
         },
 
-        onSave: function()
-        {
+        onSave: function() {
             var  a = this.getStore('dairyStore').getData().items,
                 len = this.getStore('dairyStore').getData().items.length,
                 dairyrecord = [],
@@ -97,8 +96,7 @@ Ext.define('MyApp.view.main.MainController', {
                 d1 = [],
                 d2 =[]
 
-                for(var i = 0; i<len ; i++)
-                {
+                for(var i = 0; i<len ; i++) {
                     dairyrecord.push(a[i].data);
                     cmontharray[i] = dairyrecord[i]['cmonth']
                     sdatearray[i] = dairyrecord[i]['sdate']
@@ -120,27 +118,21 @@ Ext.define('MyApp.view.main.MainController', {
                     var  days_of_a_year = numberOfDaysInSelectedYear => leapOrNot ? 366 : 365;       
                     numberOfDaysInSelectedYear = days_of_a_year()
 
-                            if(differenceBetweenDates < 31 && differenceBetweenDates != 0 && cmontharray[i] == selectedMonth) 
-                                {
+                            if(differenceBetweenDates < 31 && differenceBetweenDates != 0 && cmontharray[i] == selectedMonth) {
                                     Ext.Msg.alert('Good')
                                 }
-                            else
-                                {
+                            else {
                                     Ext.Msg.alert('Check Record size(1-31) or Month Value(1-12)'); return 0;
                                 }
                 }
+                if(totalDiffernce == numberOfDaysInSelectedYear) {
+                    Ext.Msg.alert('Record have ' + numberOfDaysInSelectedYear + ' tracks')
+                }
+                else {
+                    Ext.Msg.alert('Bad Record') ; return 0;
+                }
 
-                    if(totalDiffernce == numberOfDaysInSelectedYear)
-                    {
-                        Ext.Msg.alert('Record have ' + numberOfDaysInSelectedYear + ' tracks')
-                    }
-                    else
-                    {
-                        Ext.Msg.alert('Bad Record') ; return 0;
-                    }
-
-                    function getDatesInRange(startDate, endDate) 
-                        {
+                function getDatesInRange(startDate, endDate) {
                             const date = new Date(startDate.getTime());
                             const dates = []
                             while (date <= endDate) 
@@ -149,54 +141,25 @@ Ext.define('MyApp.view.main.MainController', {
                             date.setDate(date.getDate() + 1);
                             }
                         return dates;
-                        }
+                }
                         
-                        for(var i = 0; i<len ; i++)
-                        {
-                
+                        for(var i = 0; i<len ; i++) {
                             min= new Date(sdatearray[i]) 
                              max = new Date(edatearray[i])
                              min1= new Date(sdatearray[i+1]) 
                              max1 = new Date(edatearray[i+1])
                              d1 = getDatesInRange(min,max)
                              d2 = getDatesInRange(min1,max1)
-                             debugger
-                            // d2.forEach(function (item, index) {
-                            //     // console.log(item, index);
-                            //       if(item == val[0]){
-                            //           console.log("ok",index);
-                            //           stop
-                            //       }
-                            //   });
-                            console.log(d1)
-                            console.log(d2)
-                            for(var k=0; k < 32; k++)
-                            {
-                                if(d1[k].getDay() == d2[k].getDay())
-                                {
-                                    Ext.Msg.alert('Bad')
-                                  
+
+                            for(var k=0; k < 32; k++) {
+                                if(d1[k].getDay() == d2[k].getDay()) {
+                                    Ext.Msg.alert('Bad') 
                                 }
-                                else 
-                                {
-                                    Ext.Msg.alert('Good')
-                                    
+                                else {
+                                    Ext.Msg.alert('Good')  
                                 }
                              
-                            }
-
-
-                          
-                            
-                           
-                                
+                            }  
                         }
-                        
-
-                        }
-                   
-                        
-                   
-                            
-            
+        }                    
 });
