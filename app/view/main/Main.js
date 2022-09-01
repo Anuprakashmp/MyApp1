@@ -73,9 +73,39 @@ Ext.define('MyApp.view.main.Main', {
             }
         }
     },
-
+  
     items: 
     [
+        {
+            title: 'Dairy',
+            iconCls: 'fa-book',
+            items:
+            [
+               {
+                xtype: 'container',
+                layout:
+                {
+                    type: 'hbox',
+                    align: 'stretch',
+                    pack: 'start'
+                },
+                defaults:
+                {
+                    flex:1
+                },
+                items: 
+                [
+                    {
+                        xtype: 'chooseyear'
+                    },
+                    {
+                        xtype: 'dairy'
+                    }
+                ]
+               },
+                
+        ]
+        },
         {
             title: 'Library',
             iconCls: 'fa-cog',
@@ -97,6 +127,6 @@ Ext.define('MyApp.view.main.Main', {
             {
             xtype: 'datafromserver'
             }   
-        }
+        } 
     ]
 });

@@ -68,14 +68,14 @@ Ext.define('MyApp.view.main.MainController', {
             ({
                 url: 'https://jsonplaceholder.typicode.com/albums',
                 method: 'GET',
-                setTimeout : 6000,
+               // setTimeout : 6000,
                 scope : this,
                 success: function (response) 
                 {
                     let text = Ext.decode(response.responseText);
                     //console.dir(text);
                     var vm = this.getViewModel();
-                    vm.getStore('albumRecord').add(text)   
+                    //vm.getStore('albumRecord').add(text)   
                 },
                 failure: function (response)
                 {
@@ -83,7 +83,126 @@ Ext.define('MyApp.view.main.MainController', {
                 }
 
             })
-        }
+        },
+
+        onSave: function()
+        {
+            var  a = this.getStore('dairyStore').getData().items,
+                len = this.getStore('dairyStore').getData().items.length,
+                dairyrecord = [],
+                cmontharray = [],
+                sdatearray = [],
+                edatearray = [],
+                darray = [],
+                d1 = [],
+                d2 =[]
+
+                for(var i = 0; i<len ; i++)
+                {
+                    dairyrecord.push(a[i].data);
+                    cmontharray[i] = dairyrecord[i]['cmonth']
+                    sdatearray[i] = dairyrecord[i]['sdate']
+                    edatearray[i] = dairyrecord[i]['edate'],
+                    min= new Date(sdatearray[i]) 
+                    max = new Date(edatearray[i])
+                    min1= new Date(sdatearray[i+1]) 
+                    max1 = new Date(edatearray[i+1])
+                    
+                    date1 = new Date(sdatearray[i]) , date2 = new Date(edatearray[i])
+                    differenceBetweenDates = Ext.Date.diff(date1, date2, Ext.Date.DAY)
+
+                    selectedYear = date1.getFullYear() , selectedMonth = date1.getMonth() +1 
+
+                    darray.push(differenceBetweenDates);
+                    totalDiffernce = [...darray].reduce((a, b) => a + b, 0) + len
+
+                    leapOrNot = Ext.Date.isLeapYear(date1)
+                    var  days_of_a_year = numberOfDaysInSelectedYear => leapOrNot ? 366 : 365;       
+                    numberOfDaysInSelectedYear = days_of_a_year()
+
+                            if(differenceBetweenDates < 31 && differenceBetweenDates != 0 && cmontharray[i] == selectedMonth) 
+                                {
+                                    Ext.Msg.alert('Good')
+                                }
+                            else
+                                {
+                                    Ext.Msg.alert('Check Record size(1-31) or Month Value(1-12)'); return 0;
+                                }
+                }
+
+                    if(totalDiffernce == numberOfDaysInSelectedYear)
+                    {
+                        Ext.Msg.alert('Record have ' + numberOfDaysInSelectedYear + ' tracks')
+                    }
+                    else
+                    {
+                        Ext.Msg.alert('Bad Record') ; return 0;
+                    }
+
+                    function getDatesInRange(startDate, endDate) 
+                        {
+                            const date = new Date(startDate.getTime());
+                            const dates = []
+                            while (date <= endDate) 
+                            {
+                            dates.push(new Date(date));
+                            date.setDate(date.getDate() + 1);
+                            }
+                        return dates;
+                        }
+                        
+                        for(var i = 0; i<len ; i++)
+                        {
+                          for(var j=1; j<len ; j++)
+                          {
+                            
+                            min= new Date(sdatearray[i]) 
+                             max = new Date(edatearray[i])
+                             min1= new Date(sdatearray[j]) 
+                             max1 = new Date(edatearray[j])
+                             d1 = getDatesInRange(min,max)
+                             d2 = getDatesInRange(min1,max1)
+                             debugger
+                            // d2.forEach(function (item, index) {
+                            //     // console.log(item, index);
+                            //       if(item == val[0]){
+                            //           console.log("ok",index);
+                            //           stop
+                            //       }
+                            //   });
+                            console.log(d1)
+                            console.log(d2)
+                            for(var k=0; k < 32; k++)
+                            {
+                                if(d1[k].getDay() == d2[k].getDay())
+                                {
+                                    Ext.Msg.alert('Bad')
+                                  
+                                }
+                                else if(d1[k].getDay == d2[k].getDay)
+                                {
+                                    Ext.Msg.alert('Good')
+                                    
+                                }
+                                else
+                                {
+                                    Ext.Msg.alert('Exceptional')
+                                   
+                                }
+                            }
 
 
+                          }
+                            
+                           
+                                
+                        }
+                        
+
+                        }
+                   
+                        
+                   
+                            
+            
 });
