@@ -26,7 +26,7 @@ Ext.define('MyApp.view.main.DairyViewModel', {
 
                     {sdate: '3-16-2022', edate: '3-31-2022', cmonth: 3, id: 2 },
                     
-                    {sdate: '1-16-2022', edate: '1-31-2022', cmonth: 1, id: 15 },
+                    {sdate: '3-16-2022', edate: '3-31-2022', cmonth: 3, id: 15 },
 
                     {sdate: '1-1-2022', edate: '1-15-2022', cmonth: 1, id: 16 },
 

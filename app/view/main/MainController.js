@@ -153,13 +153,11 @@ Ext.define('MyApp.view.main.MainController', {
                         
                         for(var i = 0; i<len ; i++)
                         {
-                          for(var j=1; j<len ; j++)
-                          {
-                            
+                
                             min= new Date(sdatearray[i]) 
                              max = new Date(edatearray[i])
-                             min1= new Date(sdatearray[j]) 
-                             max1 = new Date(edatearray[j])
+                             min1= new Date(sdatearray[i+1]) 
+                             max1 = new Date(edatearray[i+1])
                              d1 = getDatesInRange(min,max)
                              d2 = getDatesInRange(min1,max1)
                              debugger
@@ -179,20 +177,16 @@ Ext.define('MyApp.view.main.MainController', {
                                     Ext.Msg.alert('Bad')
                                   
                                 }
-                                else if(d1[k].getDay == d2[k].getDay)
+                                else 
                                 {
                                     Ext.Msg.alert('Good')
                                     
                                 }
-                                else
-                                {
-                                    Ext.Msg.alert('Exceptional')
-                                   
-                                }
+                             
                             }
 
 
-                          }
+                          
                             
                            
                                 
