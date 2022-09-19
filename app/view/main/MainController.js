@@ -7,6 +7,7 @@ Ext.define('MyApp.view.main.MainController', {
 
     alias: 'controller.main',
 
+
     // init: function(){
     //     this.loadAlbums();
     // },
@@ -68,14 +69,15 @@ Ext.define('MyApp.view.main.MainController', {
             ({
                 url: 'https://jsonplaceholder.typicode.com/albums',
                 method: 'GET',
-               // setTimeout : 6000,
+                setTimeout : 1000,
                 scope : this,
                 success: function (response) 
                 {
-                    let text = Ext.decode(response.responseText);
+                    //debugger
+                    var text = Ext.decode(response.responseText);
                     //console.dir(text);
                     var vm = this.getViewModel();
-                    //vm.getStore('albumRecord').add(text)   
+                    //vm.getStore('albumRecord').add(text)  // it works but give console error
                 },
                 failure: function (response)
                 {
@@ -161,5 +163,12 @@ Ext.define('MyApp.view.main.MainController', {
                              
                             }  
                         }
-        }                    
+        },
+        
+        onPrint : function () {
+            var a = this.getReferences().printpanel.setHtml('ready to print')  
+        },
+
+       
+    
 });

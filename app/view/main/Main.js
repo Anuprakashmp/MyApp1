@@ -77,6 +77,21 @@ Ext.define('MyApp.view.main.Main', {
     items: 
     [
         {
+            title : 'Layout-Hbox',
+            iconCls: 'fa-book',
+            xtype: 'layout-horizontal-box',
+        },
+        {
+            title : 'Layout-Border',
+            iconCls: 'fa-book',
+            xtype: 'layout-border',
+        },
+        {
+            title : 'Layout-Column',
+            iconCls: 'fa-book',
+            xtype: 'layout-column',
+        },
+        {
             title: 'Dairy',
             iconCls: 'fa-book',
             items:
