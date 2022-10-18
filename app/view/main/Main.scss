@@ -85,3 +85,7 @@
     top: 30px;
     right: -24px;
 }
+
+.x-grid-item:not(.x-grid-item-selected):not(.x-grid-item-over) .redBackground .x-grid-cell {
+    background-color: #ffe6e6;
+}

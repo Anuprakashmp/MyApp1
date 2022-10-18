@@ -169,6 +169,42 @@ Ext.define('MyApp.view.main.MainController', {
             var a = this.getReferences().printpanel.setHtml('ready to print')  
         },
 
+        addDetails : function (btn) {
+            debugger
+            var form = btn.up('form'),
+            data1 = form.getValues(),
+            store = this.getViewModel().getStore('infiniteRecord')
+            debugger
+            store.add(data1)
+            form.reset()
+        },
+
+        resetDetails: function (btn) {
+            btn.up('form').reset();
+        },
        
-    
+        deleteDetail: function (view, rowIndex, colIndex, item, e, record, row) {
+            view.getStore().remove(record);
+        },
+
+        onButtonWidgetClick : function(btn) {
+            var me = this,
+            rec = btn._rowContext.record.data
+            var formDEtails = Ext.create('Ext.window.Window', {
+                title: 'ADD NEW DATA',
+                height: '50%',
+                width: '50%',
+                padding : 50,
+                scope: me,
+                vm: me.getViewModel(),
+                resizable: false,
+                items: [{
+                    scope: this,
+                    record1 : btn._rowContext.record.data,
+                    xtype: 'details1'
+                }]
+            });
+            formDEtails.show();
+        }
+
 });

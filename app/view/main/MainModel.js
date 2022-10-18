@@ -67,12 +67,40 @@ Ext.define('MyApp.view.main.MainModel', {
                 },
                 autoLoad: true
             },
+
+            infiniteRecord :
+            {
+                fields: [
+                    'ID Nation', 'Nation', 'ID Year', 'Year', 'Population', 'Slug Nation',
+                   ],
+            
+                    //leadingBufferZone: 100,
+                    pageSize: 50,
+                    remoteSort: true,
+                    autoLoad: true,
+                    proxy: {
+                        type: 'rest',  // 'ajax' also works
+                        url: 'https://datausa.io/api/data?drilldowns=Nation&measures=Population',
+                        cors : true,
+                        useDefaultXhrHeader: false,
+                        
+                        reader: {     // interprets data to be loaded to ext.data.model
+                            rootProperty: 'data',
+                            //totalProperty: 'totalCount'
+                        }
+                    }
+            },
+            ZigZag : 
+            {
+                data :
+                        [
+                            { fname: 'Jean Luc',  phone: "+91-111-1111", status: true, objType: 1},
+                            { fname: 'Worf',    phone: "+01-222-2222",  status: false, objType: 3},
+                            { fname: 'Deanna',    phone: "+91-333-3333", status: true, objType: 1},
+                            { fname: 'Data',    phone: "+91-444-4444",  status: false, objType: 3}
+                        ],
+            }
         }
 
     //TODO - add data, formulas and/or methods to support your view
 });
-
-// var store = Ext.create('Ext.data.Store', {
-   
-// });
-// store.load();

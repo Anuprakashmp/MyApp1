@@ -77,19 +77,24 @@ Ext.define('MyApp.view.main.Main', {
     items: 
     [
         {
+            title : 'multiple icon',
+            iconCls: 'fa-book',
+            xtype : 'icongrid'
+        },
+        {
             title : 'Layout-Hbox',
             iconCls: 'fa-book',
-            xtype: 'layout-horizontal-box',
+            xtype: 'layout-horizontal-box'
         },
         {
             title : 'Layout-Border',
             iconCls: 'fa-book',
-            xtype: 'layout-border',
+            xtype: 'layout-border'
         },
         {
             title : 'Layout-Column',
             iconCls: 'fa-book',
-            xtype: 'layout-column',
+            xtype: 'layout-column'
         },
         {
             title: 'Dairy',
@@ -117,9 +122,8 @@ Ext.define('MyApp.view.main.Main', {
                         xtype: 'dairy'
                     }
                 ]
-               },
-                
-        ]
+               },     
+            ]
         },
         {
             title: 'Library',

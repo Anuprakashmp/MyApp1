@@ -23,6 +23,7 @@ Ext.define('MyApp.view.main.hboxLayoutExample', {
     defaults: {
         frame: true,
         bodyPadding: 10,
+        collapsible : true
     },
 
     items: [
@@ -76,7 +77,8 @@ Ext.define('MyApp.view.main.hboxLayoutExample', {
 
             defaults: {
                 frame: true,
-                bodyPadding: 10
+                bodyPadding: 10,
+                collapsible : true
             },
         
             items: [{
@@ -129,6 +131,7 @@ Ext.define('MyApp.view.main.hboxLayoutExample', {
                                 xtype: 'button',
                                 text: 'Print & Download',
                                 handler : 'onPrint',
+                                //formBind: true,
                             }
                         ]
                 },
@@ -137,8 +140,7 @@ Ext.define('MyApp.view.main.hboxLayoutExample', {
                     title: 'Declaration',
                     iconCls : 'fa-book',
                     height: 100,
-                    margin: '0 0 10 0',
-                   // html: 'height: 100',  
+                    margin: '0 0 10 0', // html: 'height: 100',  
                     //itemId : 'printpanel',    // check entire project
                     reference : 'printpanel'
                 },
