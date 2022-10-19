@@ -12,10 +12,9 @@ Ext.define('MyApp.view.main.Main', {
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
-
         'MyApp.view.main.MainController',
         'MyApp.view.main.MainModel',
-        'MyApp.view.main.List'
+        'MyApp.view.main.List',
     ],
 
     controller: 'main',
@@ -57,9 +56,10 @@ Ext.define('MyApp.view.main.Main', {
         }
     },
 
+
     defaults: {
         bodyPadding: 20,
-        tabConfig: {
+       
             responsiveConfig: {
                 wide: {
                     iconAlign: 'left',
@@ -70,12 +70,22 @@ Ext.define('MyApp.view.main.Main', {
                     textAlign: 'center',
                     width: 120
                 }
-            }
+            
         }
+    },
+
+    renderConfig: {
+         tabConfig: {
+            ariaLabel: 'u selected a tab'
+         }
     },
   
     items: 
     [
+        {
+            xtype: 'ige',
+            title :'infinate grid',
+        },
         {
             title : 'multiple icon',
             iconCls: 'fa-book',

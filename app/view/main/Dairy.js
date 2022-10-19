@@ -44,7 +44,7 @@ Ext.define('MyApp.view.main.Dairy', {
            editor:{
             xtype: 'datefield',
            },
-            width: 75,
+            width: 75
         }, 
         {
             text: 'End date',
