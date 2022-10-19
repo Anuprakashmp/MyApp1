@@ -170,11 +170,9 @@ Ext.define('MyApp.view.main.MainController', {
         },
 
         addDetails : function (btn) {
-            debugger
             var form = btn.up('form'),
             data1 = form.getValues(),
             store = this.getViewModel().getStore('infiniteRecord')
-            debugger
             store.add(data1)
             form.reset()
         },

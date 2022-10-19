@@ -12,10 +12,9 @@ Ext.define('MyApp.view.main.Main', {
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
-
         'MyApp.view.main.MainController',
         'MyApp.view.main.MainModel',
-        'MyApp.view.main.List'
+        'MyApp.view.main.List',
     ],
 
     controller: 'main',
@@ -76,6 +75,14 @@ Ext.define('MyApp.view.main.Main', {
   
     items: 
     [
+        {
+            xtype: 'virtualgridexample',
+            title :'virtual grid'
+        },
+        {
+            xtype: 'ige',
+            title :'infinate grid'
+        },
         {
             title : 'multiple icon',
             iconCls: 'fa-book',

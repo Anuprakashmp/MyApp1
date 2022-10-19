@@ -5,6 +5,7 @@ Ext.define('MyApp.view.main.MainModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.main',
 
+   
     formulas: 
         {
             //used to enable/disable form buttons
@@ -99,8 +100,11 @@ Ext.define('MyApp.view.main.MainModel', {
                             { fname: 'Deanna',    phone: "+91-333-3333", status: true, objType: 1},
                             { fname: 'Data',    phone: "+91-444-4444",  status: false, objType: 3}
                         ],
-            }
+            },
+
         }
+
+
 
     //TODO - add data, formulas and/or methods to support your view
 });
