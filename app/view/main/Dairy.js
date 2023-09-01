@@ -6,11 +6,12 @@ Ext.define('MyApp.view.main.Dairy', {
     [
         'MyApp.view.main.MainController',
         'MyApp.view.main.MainModel',
-        'Ext.grid.plugin.CellEditing'
+        'Ext.grid.plugin.CellEditing',
+        'Ext.grid.plugin.CellEditor'
     ],
 
     controller: 'main',
-    viewModel: 'dairyview',
+    viewModel: 'dairyview', 
 
     plugins: 
     [{
