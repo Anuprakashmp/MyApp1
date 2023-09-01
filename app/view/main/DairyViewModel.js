@@ -16,7 +16,8 @@ Ext.define('MyApp.view.main.DairyViewModel', {
                 {year : '2006'},
                 {year : '2007'},
                 {year : '2008'},
-                {year : '2009'}
+                {year : '2009'},
+                {year : '2010'}
                ]
             },
 
